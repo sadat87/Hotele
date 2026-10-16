@@ -1,0 +1,23 @@
+<div class="amenity-card group bg-white rounded-xl p-6 border border-gray-200 hover:border-coral hover:shadow-xl transition-all duration-300 cursor-pointer text-center">
+  <div class="w-14 h-14 rounded-full bg-coral/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-coral group-hover:scale-110 transition-all duration-300">
+    <svg class="w-7 h-7 text-coral group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <% if (icon === 'wifi') { %>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+      <% } else if (icon === 'spa') { %>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+      <% } else if (icon === 'dumbbell') { %>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+      <% } else if (icon === 'coffee') { %>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+      <% } else if (icon === 'waves') { %>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12a8 8 0 018-8V4a12 12 0 00-12 12h4zm0 0h4a8 8 0 008-8h4a12 12 0 00-12 12z"/>
+      <% } else if (icon === 'car') { %>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>
+      <% } else { %>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+      <% } %>
+    </svg>
+  </div>
+  <p class="font-semibold text-gray-900 group-hover:text-coral transition-colors"><%= label %></p>
+  <p class="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity"><%= desc %></p>
+</div>

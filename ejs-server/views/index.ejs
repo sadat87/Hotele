@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <%- include('partials/header') %>
+
+  <!-- Hero with Video Walkthrough Background -->
+  <section class="relative min-h-[70vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60" poster="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&h=1080&fit=crop">
+        <source src="https://videos.pexels.com/video-files/3945316/3945316-uhd_1440_2732_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-r from-white/90 to-transparent"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif italic text-gray-800 leading-tight max-w-2xl">
+        You Have A Destination, We Have A Place.
+      </h1>
+      <p class="text-gray-600 text-lg mt-6 max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </section>
+
+  <!-- Search Form -->
+  <section class="max-w-6xl mx-auto px-4 -mt-12 relative z-10">
+    <form action="/search" method="POST" id="searchForm" class="bg-white rounded-xl shadow-2xl border border-gray-200 p-4 md:p-0 flex flex-col md:flex-row">
+      <div class="flex-1 border-b md:border-b-0 md:border-r border-gray-200 p-4">
+        <label class="block text-xs font-medium text-gray-600 uppercase mb-1">Check In</label>
+        <input type="date" name="checkIn" id="checkIn" class="w-full text-gray-900 bg-transparent border-none focus:outline-none" required>
+      </div>
+      <div class="flex-1 border-b md:border-b-0 md:border-r border-gray-200 p-4">
+        <label class="block text-xs font-medium text-gray-600 uppercase mb-1">Check Out</label>
+        <input type="date" name="checkOut" id="checkOut" class="w-full text-gray-900 bg-transparent border-none focus:outline-none" required>
+      </div>
+      <div class="flex-1 border-b md:border-b-0 md:border-r border-gray-200 p-4">
+        <label class="block text-xs font-medium text-gray-600 uppercase mb-1">Guests</label>
+        <select name="guests" class="w-full text-gray-900 bg-transparent border-none focus:outline-none">
+          <option value="1">1 Guest</option>
+          <option value="2" selected>2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+          <option value="5">5+ Guests</option>
+        </select>
+      </div>
+      <div class="p-4">
+        <button type="submit" class="w-full md:w-auto px-8 py-4 bg-coral text-white font-semibold uppercase hover:bg-coralDark transition-colors rounded">Search</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Deal of the Day - Countdown -->
+  <section class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-gradient-to-r from-coral to-coralDark rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <span class="text-sm font-semibold uppercase tracking-wider opacity-90">Deal of the Day</span>
+            <h2 class="text-2xl md:text-3xl font-bold mt-2">15% Off Ocean View Suites</h2>
+            <p class="mt-2 opacity-90">Book today and choose flexible cancellation options.</p>
+          </div>
+          <div class="flex gap-4">
+            <div class="text-center">
+              <div id="countdown-hours" class="text-3xl md:text-4xl font-bold">12</div>
+              <div class="text-sm opacity-90">Hours</div>
+            </div>
+            <div class="text-center">
+              <div id="countdown-mins" class="text-3xl md:text-4xl font-bold">34</div>
+              <div class="text-sm opacity-90">Mins</div>
+            </div>
+            <div class="text-center">
+              <div id="countdown-secs" class="text-3xl md:text-4xl font-bold">56</div>
+              <div class="text-sm opacity-90">Secs</div>
+            </div>
+          </div>
+          <a href="/rooms?category=suites" class="px-8 py-3 bg-white text-coral font-semibold rounded-lg hover:bg-gray-100 transition-colors">Claim Offer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loyalty Program CTA -->
+  <section class="py-8 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-gray-900 text-white rounded-2xl p-8 text-center">
+        <h3 class="text-2xl font-bold mb-2">Join Our Club for 15% Off</h3>
+        <p class="text-gray-400 mb-4">Become a member and enjoy exclusive rates on your next stay.</p>
+        <a href="/profile" class="inline-block px-8 py-3 bg-coral text-white font-semibold rounded-lg hover:bg-coralDark transition-colors">Join Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Room Categories Tabs -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-serif italic text-gray-900 mb-4 text-center">Discover Rooms</h2>
+      <p class="text-gray-600 text-center mb-12">Choose from our curated selection</p>
+      <div class="flex justify-center gap-4 mb-12">
+        <a href="/rooms?category=suites" class="tab-btn px-6 py-2 rounded-full border-2 border-coral bg-coral text-white">Suites</a>
+        <a href="/rooms?category=deluxe" class="tab-btn px-6 py-2 rounded-full border-2 border-gray-300 hover:border-coral">Deluxe</a>
+        <a href="/rooms?category=penthouse" class="tab-btn px-6 py-2 rounded-full border-2 border-gray-300 hover:border-coral">Penthouse</a>
+      </div>
+
+      <!-- Dynamic Room Grid -->
+      <div id="roomGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <% rooms.forEach((room) => { %>
+        <a href="/room-details/<%= room.id %>" class="group block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div class="relative h-64 overflow-hidden">
+            <img src="<%= room.image %>" alt="<%= room.title %>" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+              <svg class="w-4 h-4 text-amber-500 fill-amber-500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <%= room.rating %>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 group-hover:text-coral transition-colors"><%= room.title %></h3>
+            <p class="text-2xl font-bold text-coral mt-2">$<%= room.price %><span class="text-sm font-normal text-gray-500">/night</span></p>
+          </div>
+        </a>
+        <% }) %>
+      </div>
+      <div class="text-center mt-12">
+        <a href="/rooms" class="inline-block px-8 py-3 bg-coral text-white font-semibold rounded-lg hover:bg-coralDark transition-colors">View All Rooms</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <%- include('partials/amenities-block') %>
+
+  <!-- Social Proof - Reviews -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-serif italic text-gray-900 mb-4 text-center">What Guests Say</h2>
+      <div id="reviewsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        <!-- Loaded via JS from reviews.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-serif italic text-gray-900 mb-8 text-center">FAQ</h2>
+      <div class="space-y-4">
+        <details class="bg-white rounded-xl p-4 shadow-sm group">
+          <summary class="font-semibold cursor-pointer list-none flex justify-between">Check-in times <span class="group-open:rotate-180">▼</span></summary>
+          <p class="mt-3 text-gray-600">Check-in is from 3:00 PM. Early check-in may be available upon request.</p>
+        </details>
+        <details class="bg-white rounded-xl p-4 shadow-sm group">
+          <summary class="font-semibold cursor-pointer list-none flex justify-between">Pet policy <span class="group-open:rotate-180">▼</span></summary>
+          <p class="mt-3 text-gray-600">We welcome pets under 25 lbs. A $50 pet fee applies per stay.</p>
+        </details>
+        <details class="bg-white rounded-xl p-4 shadow-sm group">
+          <summary class="font-semibold cursor-pointer list-none flex justify-between">Cancellation <span class="group-open:rotate-180">▼</span></summary>
+          <p class="mt-3 text-gray-600">Free cancellation up to 24 hours before check-in. Late cancellations may incur fees.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Feed Placeholder -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-serif italic text-gray-900 mb-8 text-center">@HotelUGC</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <% const igImages = ['1566073771259-6a8506099945','1571019614242-c5c5dee9f50b','1542314831-068cd1dbfeeb','1582719471384-894fbb16e074','1519046904884-53103b34b206','1631049307264-da0ec9d70304','1507525428034-b723cf961d3e','1449824913935-59a10b8d2000']; %>
+        <% igImages.forEach((id) => { %>
+        <img src="https://images.unsplash.com/photo-<%= id %>?w=400&h=400&fit=crop" alt="User content" loading="lazy" class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    // Countdown timer
+    function updateCountdown() {
+      const now = new Date();
+      const end = new Date(now);
+      end.setHours(23, 59, 59);
+      const diff = end - now;
+      const hours = Math.floor(diff / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+      const hEl = document.getElementById('countdown-hours');
+      const mEl = document.getElementById('countdown-mins');
+      const sEl = document.getElementById('countdown-secs');
+      if (hEl) hEl.textContent = String(hours).padStart(2,'0');
+      if (mEl) mEl.textContent = String(mins).padStart(2,'0');
+      if (sEl) sEl.textContent = String(secs).padStart(2,'0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Load reviews
+    fetch('/api/reviews').then(r=>r.json()).then(d=>{
+      const c = document.getElementById('reviewsContainer');
+      if (!c || !d.reviews) return;
+      c.innerHTML = d.reviews.slice(0,4).map(r=>`
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+          <div class="flex items-center gap-2 mb-3">${'⭐'.repeat(r.rating)}</div>
+          <p class="text-gray-700">"${r.text}"</p>
+          <div class="flex items-center gap-3 mt-4">
+            <img src="${r.avatar}" alt="" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <p class="font-semibold">${r.name}</p>
+              <p class="text-sm text-gray-500">${r.location}</p>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    });
+
+    // Search form - native POST to /search works; optional JS enhancement removed
+  </script>
+</body>
+</html>

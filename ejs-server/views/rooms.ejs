@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <%- include('partials/header') %>
+
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-4xl font-serif italic text-gray-900 mb-4">Our Rooms</h1>
+      <p class="text-gray-600 mb-12">Tabs swap content without page reload</p>
+
+      <!-- Category Tabs (no reload - client-side swap) -->
+      <div class="flex justify-center gap-4 mb-12">
+        <button onclick="filterByCategory('suites')" class="tab-btn px-6 py-2 rounded-full border-2 transition-colors <%= activeCategory === 'suites' ? 'border-coral bg-coral text-white' : 'border-gray-300 hover:border-coral' %>" data-category="suites">Suites</button>
+        <button onclick="filterByCategory('deluxe')" class="tab-btn px-6 py-2 rounded-full border-2 transition-colors <%= activeCategory === 'deluxe' ? 'border-coral bg-coral text-white' : 'border-gray-300 hover:border-coral' %>" data-category="deluxe">Deluxe</button>
+        <button onclick="filterByCategory('penthouse')" class="tab-btn px-6 py-2 rounded-full border-2 transition-colors <%= activeCategory === 'penthouse' ? 'border-coral bg-coral text-white' : 'border-gray-300 hover:border-coral' %>" data-category="penthouse">Penthouse</button>
+        <button onclick="filterByCategory('all')" class="tab-btn px-6 py-2 rounded-full border-2 transition-colors <%= activeCategory === 'all' ? 'border-coral bg-coral text-white' : 'border-gray-300 hover:border-coral' %>" data-category="all">All</button>
+      </div>
+
+      <!-- Room Grid -->
+      <div id="roomGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <% rooms.forEach((room) => { %>
+        <div class="room-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all" data-category="<%= room.category %>">
+          <a href="/room-details/<%= room.id %>" class="block">
+            <div class="relative h-64">
+              <img src="<%= room.image %>" alt="<%= room.title %>" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900"><%= room.title %></h3>
+              <p class="text-2xl font-bold text-coral mt-2">$<%= room.price %><span class="text-sm font-normal text-gray-500">/night</span></p>
+              <div class="flex items-center gap-1 mt-2">
+                <svg class="w-4 h-4 text-amber-500 fill-amber-500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <%= room.rating %>
+              </div>
+            </div>
+          </a>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/amenities-block') %>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    const roomsData = <%- JSON.stringify(rooms) %>;
+    function filterByCategory(cat) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-coral', 'bg-coral', 'text-white');
+        btn.classList.add('border-gray-300');
+        if (btn.dataset.category === cat) {
+          btn.classList.add('border-coral', 'bg-coral', 'text-white');
+          btn.classList.remove('border-gray-300');
+        }
+      });
+      document.querySelectorAll('.room-card').forEach(card => {
+        const show = cat === 'all' || card.dataset.category === cat;
+        card.style.display = show ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

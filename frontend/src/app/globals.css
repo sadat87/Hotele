@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import refined fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* Heading typography */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--text-primary);
+}
+
+body, input, textarea, button, select {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+:root {
+  /* Color tokens for premium dark background */
+  --bg-base: #05060a; /* near-black navy */
+  --bg-center-glow: rgba(28, 78, 229, 0.12); /* soft blue center */
+  --bg-edge-glow: rgba(99, 102, 241, 0.06); /* subtle purple-blue edges */
+  --panel-bg: rgba(255,255,255,0.04); /* glass panel */
+  --panel-border: rgba(255,255,255,0.06);
+  --text-primary: #f7fafc; /* off-white */
+  --text-muted: #9aa6c0; /* muted blue-gray */
+  --accent: #8ab4ff; /* subtle accent */
+}
+
+/* App background: deep, layered radial + linear gradients */
+.app-bg {
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(800px 400px at 50% 30%, rgba(28,78,229,0.12), transparent 18%),
+    radial-gradient(600px 300px at 10% 80%, rgba(99,102,241,0.06), transparent 20%),
+    radial-gradient(500px 300px at 90% 70%, rgba(79,70,229,0.05), transparent 22%),
+    linear-gradient(180deg, rgba(3,7,18,0.6), rgba(3,7,18,0.9));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text-primary);
+  transition: background 400ms ease, color 300ms ease;
+}
+
+/* subtle animated glow (prefers-reduced-motion respected) */
+@keyframes slowGlow {
+  0% { filter: hue-rotate(0deg) saturate(100%); }
+  50% { filter: hue-rotate(8deg) saturate(110%); }
+  100% { filter: hue-rotate(0deg) saturate(100%); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .app-bg { animation: slowGlow 18s linear infinite; }
+}
+
+/* Glass panel utility used by cards and sections */
+.glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  color: var(--text-primary);
+}
+
+/* Override existing .card to be glass by default for cohesive look */
+.card {
+  @apply rounded-lg p-6;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+}
+
+/* Text helpers */
+.text-muted { color: var(--text-muted); }
+.accent { color: var(--accent); }
+
+/* Buttons that glow subtly on dark background */
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, rgba(138,180,255,0.12), rgba(138,180,255,0.08));
+  color: var(--text-primary);
+  border: 1px solid rgba(138,180,255,0.08);
+  box-shadow: 0 6px 20px rgba(26,54,106,0.35);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Ensure images on dark bg blend nicely */
+img { image-rendering: auto; }
+
+
+/* Utility classes */
+.container {
+  @apply max-w-7xl mx-auto px-4 py-8;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-colors;
+}
+
+.btn-primary {
+  @apply btn bg-blue-500 text-white hover:bg-blue-600;
+}
+
+.btn-secondary {
+  @apply btn bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+.btn-danger {
+  @apply btn bg-red-500 text-white hover:bg-red-600;
+}
+
+.input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6;
+}
+
+.text-error {
+  @apply text-red-600 text-sm mt-1;
+}
+
+.text-success {
+  @apply text-green-600 text-sm mt-1;
+}
+
+.loading {
+  @apply animate-spin;
+}
+
+/* React Day Picker Custom Styles */
+.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #E63946;
+  --rdp-background-color: #fff;
+  --rdp-accent-color-dark: #d32f3d;
+  --rdp-background-color-dark: #fff;
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 3px solid var(--rdp-accent-color);
+  margin: 0;
+}
+
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+  color: white;
+  opacity: 1;
+  background-color: var(--rdp-accent-color);
+}
+
+.rdp-day:hover {
+  background-color: rgba(230, 57, 70, 0.1);
+}
+
+.rdp-day_today:not(.rdp-day_outside) {
+  font-weight: bold;
+  color: var(--rdp-accent-color);
+}
+
+.rdp-day_disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

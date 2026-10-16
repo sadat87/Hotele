@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <%- include('partials/header') %>
+  <main>
+    <%- body %>
+  </main>
+  <%- include('partials/footer') %>
+  <%- typeof scripts !== 'undefined' ? scripts : '' %>
+</body>
+</html>

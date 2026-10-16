@@ -1,0 +1,16 @@
+{
+  "name": "hotel-booking-ejs",
+  "version": "1.0.0",
+  "description": "Hotel Booking Website with Express & EJS",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "stripe": "^14.10.0"
+  }
+}

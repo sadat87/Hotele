@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <%- include('partials/header') %>
+
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h1 class="text-4xl font-serif italic text-gray-900 mb-4">Booking Confirmed!</h1>
+      <p class="text-gray-600 mb-8">Your reservation for <strong><%= room.title %></strong> has been confirmed.</p>
+      <div class="bg-gray-50 rounded-xl p-6 text-left">
+        <p><strong>Check In:</strong> <%= checkIn || 'TBD' %></p>
+        <p><strong>Check Out:</strong> <%= checkOut || 'TBD' %></p>
+        <p><strong>Guests:</strong> <%= guests || 1 %></p>
+        <p><strong>Nights:</strong> <%= typeof nights !== 'undefined' ? nights : 1 %></p>
+        <p><strong>Total:</strong> $<%= typeof total !== 'undefined' ? total : room.price %></p>
+      </div>
+      <a href="/rooms" class="inline-block mt-8 px-8 py-3 bg-coral text-white font-semibold rounded-lg hover:bg-coralDark transition-colors">Browse More Rooms</a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

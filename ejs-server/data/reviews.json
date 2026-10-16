@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "location": "New York, USA",
+    "rating": 5,
+    "text": "Absolutely stunning property! The service was impeccable.",
+    "date": "2025-02-15",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "location": "Tokyo, Japan",
+    "rating": 5,
+    "text": "Best hotel experience I've ever had. Highly recommend!",
+    "date": "2025-02-10",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
+  },
+  {
+    "id": 3,
+    "name": "Emma Williams",
+    "location": "London, UK",
+    "rating": 5,
+    "text": "Perfect location, beautiful rooms, exceptional service.",
+    "date": "2025-02-05",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
+  },
+  {
+    "id": 4,
+    "name": "David Martinez",
+    "location": "Barcelona, Spain",
+    "rating": 5,
+    "text": "Every aspect exceeded expectations. Will return soon!",
+    "date": "2025-01-28",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
+  }
+]

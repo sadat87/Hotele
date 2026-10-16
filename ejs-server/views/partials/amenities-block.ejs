@@ -1,0 +1,14 @@
+<section id="amenities" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl font-serif italic text-gray-900 mb-4 text-center">Our Amenities</h2>
+    <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Experience luxury with world-class facilities</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <%- include('amenity-icon', { icon: 'wifi', label: 'Free WiFi', desc: 'High-speed internet' }) %>
+      <%- include('amenity-icon', { icon: 'spa', label: 'Spa', desc: 'Wellness center' }) %>
+      <%- include('amenity-icon', { icon: 'dumbbell', label: 'Gym', desc: 'Fitness center' }) %>
+      <%- include('amenity-icon', { icon: 'coffee', label: 'Restaurant', desc: 'Fine dining' }) %>
+      <%- include('amenity-icon', { icon: 'waves', label: 'Pool', desc: 'Outdoor pool' }) %>
+      <%- include('amenity-icon', { icon: 'car', label: 'Parking', desc: 'Valet service' }) %>
+    </div>
+  </div>
+</section>
